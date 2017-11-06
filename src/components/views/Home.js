@@ -11,36 +11,17 @@ import { auth } from '../../utils/firebase';
 import Random from '../results/Random';
 import Search from '../results/Search';
 import Login from './Login';
+import Header from '../common/Header';
 
 export default class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <header>
-          <section className="brand">
-            <h1 className="name">Food Dice</h1>
-          </section>
-        </header>
-        <h1>What are you craving?</h1>
+        <Header />
         <Search />
         <Random />
       </div>
     );
   }
 }
-  {/*
-  <div className="App">
-        <OAuthButton onClick={ this._handleClick } currentUser={ this.state.currentUser } />
 
-        <header>
-          <section className="brand">
-            <img src={logo} className="logo" alt="logo" />
-            <h1 className="name">Food Dice</h1>
-          </section>
-          <OAuthButton currentUser={this.state.currentUser} />
-        </header>
-        <main>
-          <UserInfo currentUser={this.state.currentUser}  />
-        </main>
-      </div>
-      */}

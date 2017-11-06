@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
+import LogoutButton from '../account/LogoutButton';
+import UserInfo from '../common/UserInfo';
+import { auth } from '../../utils/firebase';
 
-//account/user component/dependency
-import OAuthButton from './components/account/OAuthButton';
-import UserInfo from './components/common/UserInfo';
-import { auth } from './utils/firebase';
-import LogoutButton from './components/account/LogoutButton.js';
-
-export default class App extends Component {
+export default class Header extends Component {
   getUserInfo(){
     if (this.props.currentUser){
       //if user is logged in.....
@@ -28,36 +24,36 @@ export default class App extends Component {
       );
     }else{
       //when no user logged in
-      return <OAuthButton>Log in with GitHub account</OAuthButton>;
+      return <LogoutButton>Log out</LogoutButton>;
     }
   }
 
   render() {
     return (
-      <nav className='navbar navbar-fixed-top'>
-        <div className='container'>
-          <div className='navbar-container'>
-            <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded="false" aria-controls="navbar">
-              <span className='sr-only'>Toggle Navigation</span>
-            </button>
-            <Link className='navbar-brand' to='/'>Food Dice</Link>
+      <Router>
+        <nav className='navbar navbar-fixed-top'>
+          <div className='container'>
+            <div className='navbar-container'>
+              <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded="false" aria-controls="navbar">
+                <span className='sr-only'>Toggle Navigation</span>
+              </button>
+              <Link className='navbar-brand' to='/'>Food Dice</Link>
+            </div>
+            <div id='navbar' className='navbar-collapse collapse'>
+              <ul className='nav navbar-nav navbar-right'>
+                <li className='dropdown'>
+                  {this.getUserInfo()}
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/profile'>View Profile</Link></li>
+                    <li role='separator' className='divider'></li>
+                    <li><LogoutButton>Log Out</LogoutButton></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div id='navbar' className='navbar-collapse collapse'>
-            <ul className='nav navbar-nav navbar-right'>
-              <li className='dropdown'>
-                {this.getUserInfo()}
-                <ul className='dropdown-menu'>
-                  <li><Link to='/profile'>View Profile</Link></li>
-                  <li role='separator' className='divider'></li>
-                  <li><LogoutButton>Log Out</LogoutButton></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        </nav>
+      </Router>
     );
   }
 }
-
-export default Header;

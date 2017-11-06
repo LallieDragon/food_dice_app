@@ -45,14 +45,17 @@ export default class Search extends Component {
 
   render() {
     return (
-      <form>
+      <div>
+        <h1>What are you craving?</h1>
+        <form>
           {this.createUI()}
           <div id='add-remove-buttons'>
             <input id='add-input' type='button' value='+' onClick={this.addClick.bind(this)}/>
             <input id='remove-input' type='button' value='-' onClick={this.removeClick.bind(this)} />
           </div>
           <input id='submit-cravings' type="submit" value="Submit" />
-      </form>
+        </form>
+      </div>
     );
   }
 }

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import LogoutButton from '../account/LogoutButton';
 import UserInfo from '../common/UserInfo';
 import { auth } from '../../utils/firebase';
+import './Header.css';
 
 export default class Header extends Component {
   getUserInfo(){
@@ -37,7 +38,7 @@ export default class Header extends Component {
               <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded="false" aria-controls="navbar">
                 <span className='sr-only'>Toggle Navigation</span>
               </button>
-              <Link className='navbar-brand' to='/'>Food Dice</Link>
+              <h1 className='navbar-brand'>Food Dice</h1>
             </div>
             <div id='navbar' className='navbar-collapse collapse'>
               <ul className='nav navbar-nav navbar-right'>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {auth} from '../../utils/firebase.js';
+import './LogoutButton.css';
 
 class LogoutButton extends Component {
   handleClick(){
@@ -8,7 +9,7 @@ class LogoutButton extends Component {
 
   render() {
     return (
-      <a onClick={this.handleClick} href="#">{ this.props.children }</a>
+      <a id="logout-button" onClick={this.handleClick} href="localhost:3000/">{ this.props.children }</a>
     )
   }
 }

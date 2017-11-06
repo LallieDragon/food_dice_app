@@ -36,7 +36,7 @@ export default class Search extends Component {
      for(let i = 0; i < this.state.count; i++){
            inputFields.push(
                <div id='input-form' key={i}>
-                   <input type="text" value={this.state.value[i] || ''} onChange={this.handleChange.bind(this,i)} />
+                  <input type="text" value={this.state.value[i] || ''} onChange={this.handleChange.bind(this,i)} />
                </div>
             )
      }
@@ -46,7 +46,8 @@ export default class Search extends Component {
   render() {
     return (
       <div>
-        <h1>What are you craving?</h1>
+
+        <h1 className="header">What are you craving?</h1>
         <form>
           {this.createUI()}
           <div id='add-remove-buttons'>

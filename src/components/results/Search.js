@@ -32,15 +32,15 @@ export default class Search extends Component {
   }
 
   createUI(){
-     let uiItems = [];
+     let inputFields = [];
      for(let i = 0; i < this.state.count; i++){
-           uiItems.push(
+           inputFields.push(
                <div id='input-form' key={i}>
                    <input type="text" value={this.state.value[i] || ''} onChange={this.handleChange.bind(this,i)} />
                </div>
             )
      }
-     return uiItems || null;
+     return inputFields || null;
   }
 
   render() {

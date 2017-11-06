@@ -1,16 +1,30 @@
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#add-remove-buttons {
+  display: flex;
+}
 
 #add-input {
   border-radius: 3px;
   background-color: grey;
   color: white;
-  width: 3%;
+  width: 30px;
+  margin: 3%;
 }
 
 #remove-input {
   border-radius: 3px;
   background-color: grey;
   color: white;
-  width: 3%;
+  width: 30px;
   margin: 3%;
 }
 
+input {
+  border-radius: 25px;
+  margin: 1%;
+}
